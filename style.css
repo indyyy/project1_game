@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+.gameboard {
+    margin: 20px 300px 20px 150px
+}
+ .toprow {
+    display: flex;
+   /* background: palegreen;*/
+   background: white; 
+ /*   border: 1px solid black; */
+    width: 450px;
+    height: 150px;
+ }
+
+ #b1Box {
+ /*    background: yellow; */
+    background: white;
+     width: 33.3%;
+     border-right: 5px solid black;
+     border-bottom: 5px solid black;
+  /*   background-image:url('LetterO.webp'); */
+ }
+#b2Box {
+ /*   background: purple; */
+    width: 33.3%;
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+ /*   background-image:url('LetterX.webp') */
+}
+#b3Box {
+ /*   background: orange; */
+    width: 33.3%;
+    border-bottom: 5px solid black;
+}
+ .midrow {
+     display: flex;
+   /*  background: paleturquoise;*/
+     border: red;
+     width: 450px;
+     height: 150px;
+ }
+#b4Box {
+  /*  background: yellow;*/
+    width: 33.3%;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+#b5Box {
+ /*   background: purple;*/
+    width: 33.3%;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+#b6Box {
+ /*   background: orange;*/
+    width: 33.3%;
+    border-bottom: 5px solid black;
+}
+ .botrow {
+     display: flex;
+   /*  background: palegoldenrod;*/
+     border:red; 
+     width: 450px;
+     height: 150px;
+ }
+#b7Box {
+  /*  background: yellow;*/
+    width: 33.3%;
+    border-right: 5px solid black;
+}
+#b8Box {
+  /*  background: purple;*/
+    width: 33.3%;
+    border-right: 5px solid black;
+}
+#b9Box {
+ /*   background: orange;*/
+    width: 33.3%;
+}
