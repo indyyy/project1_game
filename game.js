@@ -19,21 +19,32 @@ var winFlag = false
 var playerColor 
 
 var playerTurn = function(event) {
-    if (turnCounter % 2 == 0) {
-        if (event.target.style.backgroundImage != "") {return}
-        playerMsg.innerText="PLAYER 1 - Your Turn" 
-        event.target.style.backgroundColor="pink"
-        event.target.style.backgroundImage="url(StickerO.webp)"
-        checkWin("pink")
-        turnCounter = turnCounter + 1
-    }
-    else {
-        if (event.target.style.backgroundImage != "") {return}
-        playerMsg.innerText="PLAYER 2 - Your Turn"
-        event.target.style.backgroundColor="blue"
-        event.target.style.backgroundImage="url(StickerX.webp)"
-        checkWin("blue")
-        turnCounter = turnCounter + 1
+    if ( winFlag===false) { 
+        if (turnCounter % 2 == 0) {
+            if (event.target.style.backgroundImage != "") {return}
+            playerMsg.innerText="PLAYER 1 - Your Turn" 
+            event.target.style.backgroundColor="pink"
+            event.target.style.backgroundImage="url(StickerO.webp)"
+            checkWin("pink")
+            if (winFlag==true) 
+                {
+                    playerMsg.innerText="YEAHHHH PLAYER 1 WINS"
+                return
+                }
+            turnCounter = turnCounter + 1
+        }
+        else {
+            if (event.target.style.backgroundImage != "") {return}
+            playerMsg.innerText="PLAYER 2 - Your Turn"
+            event.target.style.backgroundColor="blue"
+            event.target.style.backgroundImage="url(StickerX.webp)"
+            checkWin("blue")
+                if (winFlag==true) {
+                    playerMsg.innerText="YEAAAHH PLAYER 2 WINS"
+               return
+                }
+            turnCounter = turnCounter + 1
+        }
     }
 }
 
@@ -47,13 +58,17 @@ var checkWin = function (playerColor) {
         var checkRow = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b2Btn.style.backgroundColor && b2Btn.style.backgroundColor===b3Btn.style.backgroundColor) 
                 {console.log(playerColor + "Top Row Wins")
-                return winFlag=true}
+                winFlag=true
+                console.log(winFlag)
+                return}
             else if (b4Btn.style.backgroundColor===playerColor && b4Btn.style.backgroundColor===b5Btn.style.backgroundColor && b5Btn.style.backgroundColor===b6Btn.style.backgroundColor) 
                 {console.log(playerColor + "Middle Row Wins")
-                 return winFlag=true}
+                winFlag=true
+                 return}
             else if (b7Btn.style.backgroundColor===playerColor && b7Btn.style.backgroundColor===b8Btn.style.backgroundColor && b8Btn.style.backgroundColor===b9Btn.style.backgroundColor) 
                  {console.log(playerColor + "Bottom Row Wins")
-                  return winFlag=true}
+                 winFlag=true
+                  return}
             else {winFlag=false}
 
         }
@@ -62,13 +77,16 @@ var checkWin = function (playerColor) {
         var checkCol = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b4Btn.style.backgroundColor && b4Btn.style.backgroundColor===b7Btn.style.backgroundColor) 
                 {console.log(playerColor + "Left Column Wins")
-                return winFlag=true}
+                winFlag=true
+                return}
             else if (b2Btn.style.backgroundColor===playerColor && b2Btn.style.backgroundColor===b5Btn.style.backgroundColor && b5Btn.style.backgroundColor===b8Btn.style.backgroundColor) 
                 {console.log(playerColor + "Middle Column Wins")
-                 return winFlag=true}
+                 winFlag=true
+                return}
             else if (b3Btn.style.backgroundColor===playerColor && b3Btn.style.backgroundColor===b6Btn.style.backgroundColor && b6Btn.style.backgroundColor===b9Btn.style.backgroundColor) 
                  {console.log(playerColor + "Right Column Wins")
-                  return winFlag=true}
+                  winFlag=true
+                return}
             else {winFlag=false}
 
         }
