@@ -3,51 +3,20 @@
 }
 
 .gameboard {
-    margin: 30px 250px 30px 150px;
-  /*  background-color: turquoise; */
-}
-
-.scoreboard {
-    display: flex;
-}
-
-h1 { 
-    margin-top: 30px; 
-    text-align: center; 
-    background-color: lightyellow;
-}
-
-.score {
-    width: 250px;
-    height: 110px; 
-    background-color: black; 
-    color: whitesmoke;
-    margin-left: 80px; 
-    display: flex;  
-    justify-content: space-between; 
-}
-
-.scoreNum {
-    color: navajowhite; 
-    font-size: 70px; 
-}
-
-h3 {
-    color: red; 
+    margin: 20px 300px 20px 150px
 }
  .toprow {
     display: flex;
-    background-color: turquoise;
    /* background: palegreen;*/
-  /* background: white; */
+   background: white; 
  /*   border: 1px solid black; */
     width: 450px;
-    height: 125px;
+    height: 150px;
  }
 
  #b1Box {
  /*    background: yellow; */
- /*   background: white; */
+    background: white;
      width: 33.3%;
      border-right: 5px solid black;
      border-bottom: 5px solid black;
@@ -68,10 +37,9 @@ h3 {
  .midrow {
      display: flex;
    /*  background: paleturquoise;*/
-     background: turquoise;
      border: red;
      width: 450px;
-     height: 125px;
+     height: 150px;
  }
 #b4Box {
   /*  background: yellow;*/
@@ -93,10 +61,9 @@ h3 {
  .botrow {
      display: flex;
    /*  background: palegoldenrod;*/
-     background: turquoise;
      border:red; 
      width: 450px;
-     height: 125px;
+     height: 150px;
  }
 #b7Box {
   /*  background: yellow;*/
@@ -111,13 +78,4 @@ h3 {
 #b9Box {
  /*   background: orange;*/
     width: 33.3%;
-}
-
-button {
-    font-size: 16px;
-    color: grey;
-    position: absolute;
-    left: 35%;
-    background-color: turquoise
-    
 }

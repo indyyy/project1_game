@@ -19,16 +19,6 @@ var playerMsg = document.querySelector("body h1")
 
 var gameboard=document.querySelector(".gameboard")
 
-var player1ScoreBox = document.querySelectorAll(".scoreboard h2")[0]
-var player2ScoreBox = document.querySelectorAll(".scoreboard h2")[1]
-
-// set the X and O images for Player 1 and Player 2
-player1ScoreBox.style.backgroundImage="url(StickerX.webp)"
-player2ScoreBox.style.backgroundImage="url(StickerO.webp)"
-
-// Button to reset the game 
-var resetBtn = document.querySelector("footer button")
-
 // Keep Playing till winFlag is true and there is a Winner
 
 var winFlag = false
@@ -41,11 +31,6 @@ var playerColor
 // if player1 clicks on tic-tac-toe box then turn it blue with an "X" GIPHY
 // if player2 click on tic-tac-toe box then turn it pink with an "O" GIPHY
 // keep increasing the turn counter and checking if Player 1(EVEN) or Player 2(ODD)
-
-var clearBoard = function() {
-    window.location.reload()
-}
-
 
 var playerTurn = function(event) {
     if ( winFlag===false) { 
@@ -146,4 +131,3 @@ var checkWin = function (playerColor) {
 // listen for a "click" event on the game-board, and then execute the playerTurn function
 
 gameboard.addEventListener('click',playerTurn)
-resetBtn.addEventListener('click', clearBoard)
