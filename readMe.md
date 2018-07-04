@@ -5,6 +5,53 @@ Version Beta 1.7.5.2018
 credits: giphy.com for the X's and O's images
 
 ### RUN INSTRUCTIONS
+< Insert gitHub link over here>
+
+### Technologies Used: 
+HTML, CSS, Javascript
+GitHub for Version Control
+
+### Approach Taken:
+## HTML Layout:
+Scoreboard with Player 1 and Player 2 Box
+Message Box for Player
+3 x 3 boxes with ID's in a gameboard wrapper
+Footer with a Reset Button
+
+## CSS:
+Tic-Tac-Toe box width is 1/3 size of gameboard
+Fixed black border colors and turquoise background
+<Not optimized for devices yet>
+
+## JavaScript:
+Player 1 is assigned "Blue" color and an "X" Giphy
+Player 2 is assigned "Pink" color and an "O" Giphy
+
+Each player takes a turn until there is a "Winner"
+
+"Winner" is through a checkWin() function which uses color to distinguish between players
+In checkWin() - 3 winning combinations are checked for a winner
+1) Check the ROWS where 3 boxes are the same color (pink or blue)
+2) Check the COLUMNS where 3 boxes are the same color (pink or blue)
+3) Check the Diagonals(Left and Right) where the boxes are teh same color (pin or blue)
+If there is a TIE - the game has ended and RESET to start again
+
+RESET: executes a "Browser Refresh"
+
+## NEXT BETA RELEASE
+1) Scoreboard that keeps scores of each player
+2) Reset Button that clears the board, starts a new game and keeps track of score
+3) Optimized for different size screens
+4) Players can customize and  choose colors and giphy
+5) scalable board with efficient loops and functions
+6) sound effects
+7) keeps top 5 player scores of all time
+
+
+
+
+
+
 
 
 
