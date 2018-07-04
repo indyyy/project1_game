@@ -22,25 +22,25 @@ var playerTurn = function(event) {
     if ( winFlag===false) { 
         if (turnCounter % 2 == 0) {
             if (event.target.style.backgroundImage != "") {return}
-            playerMsg.innerText="PLAYER 1 - Your Turn" 
-            event.target.style.backgroundColor="pink"
-            event.target.style.backgroundImage="url(StickerO.webp)"
-            checkWin("pink")
+                playerMsg.innerText="PLAYER 1 - Your Turn" 
+                event.target.style.backgroundColor="pink"
+                event.target.style.backgroundImage="url(StickerO.webp)"
+                checkWin("pink")
             if (winFlag==true) 
                 {
-                    playerMsg.innerText="YEAHHHH PLAYER 1 WINS"
+                    playerMsg.innerText="YEAHHHH PLAYER 2 WINS"
                 return
                 }
             turnCounter = turnCounter + 1
         }
         else {
             if (event.target.style.backgroundImage != "") {return}
-            playerMsg.innerText="PLAYER 2 - Your Turn"
-            event.target.style.backgroundColor="blue"
-            event.target.style.backgroundImage="url(StickerX.webp)"
-            checkWin("blue")
+                playerMsg.innerText="PLAYER 2 - Your Turn"
+                event.target.style.backgroundColor="blue"
+                event.target.style.backgroundImage="url(StickerX.webp)"
+                checkWin("blue")
                 if (winFlag==true) {
-                    playerMsg.innerText="YEAAAHH PLAYER 2 WINS"
+                    playerMsg.innerText="YEAAAHH PLAYER 1 WINS"
                return
                 }
             turnCounter = turnCounter + 1
@@ -49,26 +49,31 @@ var playerTurn = function(event) {
 }
 
 var checkWin = function (playerColor) {
-    
-    checkRow(playerColor)
-    checkCol(playerColor)
-    checkDiag(playerColor)
+        console.log(winFlag)
+        if (winFlag===false) {
+            checkDiag(playerColor)
+            console.log("Diag" + winFlag)
+        }
+        if (winFlag===false) {
+            checkRow(playerColor)
+            console.log("Row" + winFlag)
+        }
+        if (winFlag===false) {
+            checkCol(playerColor)
+            console.log("Col" + winFlag)
+        }
 }
 
         var checkRow = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b2Btn.style.backgroundColor && b2Btn.style.backgroundColor===b3Btn.style.backgroundColor) 
                 {console.log(playerColor + "Top Row Wins")
-                winFlag=true
-                console.log(winFlag)
-                return}
+                return winFlag=true} 
             else if (b4Btn.style.backgroundColor===playerColor && b4Btn.style.backgroundColor===b5Btn.style.backgroundColor && b5Btn.style.backgroundColor===b6Btn.style.backgroundColor) 
                 {console.log(playerColor + "Middle Row Wins")
-                winFlag=true
-                 return}
+                 return winFlag=true}
             else if (b7Btn.style.backgroundColor===playerColor && b7Btn.style.backgroundColor===b8Btn.style.backgroundColor && b8Btn.style.backgroundColor===b9Btn.style.backgroundColor) 
                  {console.log(playerColor + "Bottom Row Wins")
-                 winFlag=true
-                  return}
+                  return winFlag=true}
             else {winFlag=false}
 
         }
@@ -77,16 +82,15 @@ var checkWin = function (playerColor) {
         var checkCol = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b4Btn.style.backgroundColor && b4Btn.style.backgroundColor===b7Btn.style.backgroundColor) 
                 {console.log(playerColor + "Left Column Wins")
-                winFlag=true
-                return}
+                return winFlag=true
+                }
             else if (b2Btn.style.backgroundColor===playerColor && b2Btn.style.backgroundColor===b5Btn.style.backgroundColor && b5Btn.style.backgroundColor===b8Btn.style.backgroundColor) 
                 {console.log(playerColor + "Middle Column Wins")
-                 winFlag=true
-                return}
+                return winFlag=true
+                }
             else if (b3Btn.style.backgroundColor===playerColor && b3Btn.style.backgroundColor===b6Btn.style.backgroundColor && b6Btn.style.backgroundColor===b9Btn.style.backgroundColor) 
                  {console.log(playerColor + "Right Column Wins")
-                  winFlag=true
-                return}
+                return winFlag=true}
             else {winFlag=false}
 
         }
@@ -103,13 +107,5 @@ var checkWin = function (playerColor) {
             else {winFlag=false}
 
         }
-
-        
-
-
-
-
-
-
 
 gameboard.addEventListener('click',playerTurn)
