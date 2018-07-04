@@ -1,5 +1,6 @@
 
 
+// Buttons for each Tic-Tac-Toe Box //
 var b1Btn=document.querySelector("#b1Box")
 var b2Btn=document.querySelector("#b2Box")
 var b3Btn=document.querySelector("#b3Box")
@@ -10,13 +11,26 @@ var b7Btn=document.querySelector("#b7Box")
 var b8Btn=document.querySelector("#b8Box")
 var b9Btn=document.querySelector("#b9Box")
 
+// Counter for Player Turn - if EVEN then Player 1
+
 var turnCounter = 1
+
 var playerMsg = document.querySelector("body h1")
 
 var gameboard=document.querySelector(".gameboard")
 
+// Keep Playing till winFlag is true and there is a Winner
+
 var winFlag = false
+
+// player 1 is blue and player 2 is pink
+
 var playerColor 
+
+// Each player takes a turn until there is a winner - execute CheckWin() to check for Winner
+// if player1 clicks on tic-tac-toe box then turn it blue with an "X" GIPHY
+// if player2 click on tic-tac-toe box then turn it pink with an "O" GIPHY
+// keep increasing the turn counter and checking if Player 1(EVEN) or Player 2(ODD)
 
 var playerTurn = function(event) {
     if ( winFlag===false) { 
@@ -48,6 +62,10 @@ var playerTurn = function(event) {
     }
 }
 
+// Function to check for Winner based on Player1 being blue or Player2 being pink
+// Check the diagonals for a winner / Check the rows for a winner / Check the columns for a winner
+// Only check if the winFlag is False (there is now winner)
+
 var checkWin = function (playerColor) {
         console.log(winFlag)
         if (winFlag===false) {
@@ -64,6 +82,7 @@ var checkWin = function (playerColor) {
         }
 }
 
+// check the Row for a Winner and if there is a winner then return a true flag that there is a winner
         var checkRow = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b2Btn.style.backgroundColor && b2Btn.style.backgroundColor===b3Btn.style.backgroundColor) 
                 {console.log(playerColor + "Top Row Wins")
@@ -78,7 +97,7 @@ var checkWin = function (playerColor) {
 
         }
 
-
+// check the Columns for a Winner and if there is a winner then return a true flag that there is a winner
         var checkCol = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b4Btn.style.backgroundColor && b4Btn.style.backgroundColor===b7Btn.style.backgroundColor) 
                 {console.log(playerColor + "Left Column Wins")
@@ -96,6 +115,7 @@ var checkWin = function (playerColor) {
         }
 
 
+// check the Diagonals for a Winner and if there is a winner then return a true flag that there is a winner
 
         var checkDiag = function (playerColor) {
             if (b1Btn.style.backgroundColor===playerColor && b1Btn.style.backgroundColor===b5Btn.style.backgroundColor && b5Btn.style.backgroundColor===b9Btn.style.backgroundColor) 
@@ -107,5 +127,7 @@ var checkWin = function (playerColor) {
             else {winFlag=false}
 
         }
+
+// listen for a "click" event on the game-board, and then execute the playerTurn function
 
 gameboard.addEventListener('click',playerTurn)
