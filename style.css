@@ -15,6 +15,7 @@ h1 {
     margin-top: 30px; 
     text-align: center; 
     background-color: lightyellow;
+    width: 700px; 
 }
 
 .score {
@@ -33,7 +34,17 @@ h1 {
 }
 
 h3 {
-    color: red; 
+    color: red;
+    font-size: 30px;
+    text-align: center;
+    margin: 0; 
+    border: 2px solid red; 
+    width: 350px;
+    padding: 0px 10px 0px 10px;
+    margin-left: 200px; 
+    border-radius: 10px;
+    background: #73AD21
+    
 }
  .toprow {
     display: flex;
@@ -115,9 +126,11 @@ h3 {
 
 button {
     font-size: 16px;
-    color: grey;
+    color: white; 
     position: absolute;
-    left: 35%;
-    background-color: turquoise
+    left: 22%;
+    background-color: grey;
+    border-radius: 15px; 
+    box-shadow: 4px 4px 8px red;; 
     
 }

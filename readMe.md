@@ -5,7 +5,7 @@ Version Beta 1.7.5.2018
 credits: giphy.com for the X's and O's images
 
 ### RUN INSTRUCTIONS
-< Insert gitHub link over here>
+https://indyyy.github.io/project1_game/
 
 ### Technologies Used: 
 HTML, CSS, Javascript

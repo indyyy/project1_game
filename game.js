@@ -1,5 +1,18 @@
 
 
+// Sounds for Player 1, Player 2 and Winner
+
+var splatSoundB = new Audio('zapsplat_cartoon_bounces_fast_chaotic_18269.mp3');
+var splatSoundP= new Audio('aaj_0195_FmlScrm3SFX.mp3');
+var splatSoundW = new Audio('zapsplat_multimedia_male_voice_processed_says_winner_001_21568.mp3');
+// splatSound.play();
+
+//var flush = new Audio('toilet_flush.wav');
+//var duration = flush.duration;
+
+
+
+
 // Buttons for each Tic-Tac-Toe Box //
 var b1Btn=document.querySelector("#b1Box")
 var b2Btn=document.querySelector("#b2Box")
@@ -15,12 +28,22 @@ var b9Btn=document.querySelector("#b9Box")
 
 var turnCounter = 1
 
+
 var playerMsg = document.querySelector("body h1")
 
 var gameboard=document.querySelector(".gameboard")
 
 var player1ScoreBox = document.querySelectorAll(".scoreboard h2")[0]
 var player2ScoreBox = document.querySelectorAll(".scoreboard h2")[1]
+
+var player1ScoreNumMsg = document.querySelectorAll(".scoreNum")[0]
+var player2ScoreNumMsg = document.querySelectorAll(".scoreNum")[1]
+
+var player1ScoreNum = 0
+var player2ScoreNum = 0
+
+player1ScoreNumMsg.innerText = 0
+player2ScoreNumMsg.innerText = 0
 
 // set the X and O images for Player 1 and Player 2
 player1ScoreBox.style.backgroundImage="url(StickerX.webp)"
@@ -43,7 +66,28 @@ var playerColor
 // keep increasing the turn counter and checking if Player 1(EVEN) or Player 2(ODD)
 
 var clearBoard = function() {
-    window.location.reload()
+  //  splatSound.play()
+  //   window.location.reload()
+  winFlag=false
+  playerMsg.innerText="PLAYER 1 - Your Turn" 
+  b1Btn.style.backgroundColor="turquoise"
+  b2Btn.style.backgroundColor="turquoise"
+  b3Btn.style.backgroundColor="turquoise"
+  b4Btn.style.backgroundColor="turquoise"
+  b5Btn.style.backgroundColor="turquoise"
+  b6Btn.style.backgroundColor="turquoise"
+  b7Btn.style.backgroundColor="turquoise"
+  b8Btn.style.backgroundColor="turquoise"
+  b9Btn.style.backgroundColor="turquoise"
+  b1Btn.style.backgroundImage=""
+  b2Btn.style.backgroundImage=""
+  b3Btn.style.backgroundImage=""
+  b4Btn.style.backgroundImage=""
+  b5Btn.style.backgroundImage=""
+  b6Btn.style.backgroundImage=""
+  b7Btn.style.backgroundImage=""
+  b8Btn.style.backgroundImage=""
+  b9Btn.style.backgroundImage=""
 }
 
 
@@ -52,12 +96,16 @@ var playerTurn = function(event) {
         if (turnCounter % 2 == 0) {
             if (event.target.style.backgroundImage != "") {return}
                 playerMsg.innerText="PLAYER 1 - Your Turn" 
+                splatSoundP.play()
                 event.target.style.backgroundColor="pink"
                 event.target.style.backgroundImage="url(StickerO.webp)"
                 checkWin("pink")
             if (winFlag==true) 
                 {
+                    splatSoundW.play()
                     playerMsg.innerText="YEAHHHH PLAYER 2 WINS"
+                    player2ScoreNum = player2ScoreNum + 1
+                    player2ScoreNumMsg.innerText = player2ScoreNum 
                 return
                 }
             turnCounter = turnCounter + 1
@@ -65,11 +113,15 @@ var playerTurn = function(event) {
         else {
             if (event.target.style.backgroundImage != "") {return}
                 playerMsg.innerText="PLAYER 2 - Your Turn"
+                splatSoundB.play()
                 event.target.style.backgroundColor="blue"
                 event.target.style.backgroundImage="url(StickerX.webp)"
                 checkWin("blue")
                 if (winFlag==true) {
+                    splatSoundW.play()
                     playerMsg.innerText="YEAAAHH PLAYER 1 WINS"
+                    player1ScoreNum = player1ScoreNum + 1
+                    player1ScoreNumMsg.innerText = player1ScoreNum
                return
                 }
             turnCounter = turnCounter + 1
@@ -144,6 +196,8 @@ var checkWin = function (playerColor) {
         }
 
 // listen for a "click" event on the game-board, and then execute the playerTurn function
+
+
 
 gameboard.addEventListener('click',playerTurn)
 resetBtn.addEventListener('click', clearBoard)
